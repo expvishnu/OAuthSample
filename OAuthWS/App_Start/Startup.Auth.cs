@@ -46,6 +46,7 @@ namespace OAuthWS
                 AuthorizeEndpointPath = new PathString("/OAuth/Authorize"),
                 TokenEndpointPath = new PathString("/OAuth/Token"),
                 ApplicationCanDisplayErrors = true,
+                AuthorizationCodeExpireTimeSpan = TimeSpan.FromMinutes(600),
 #if DEBUG
                 AllowInsecureHttp = true,
 #endif
@@ -53,9 +54,7 @@ namespace OAuthWS
                 Provider = new OAuthAuthorizationServerProvider
                 {
                     OnValidateClientRedirectUri = ValidateClientRedirectUri,
-                    OnValidateClientAuthentication = ValidateClientAuthentication,
-                    OnValidateTokenRequest=     ValidateTokenRequest,
-           
+                    OnValidateClientAuthentication = ValidateClientAuthentication                  
 
                 },
 
@@ -63,7 +62,8 @@ namespace OAuthWS
                 AuthorizationCodeProvider = new AuthenticationTokenProvider
                 {
                     OnCreate = CreateAuthenticationCode,
-                    OnReceive = ReceiveAuthenticationCode,
+                    OnReceive = ReceiveAuthenticationCode                    
+
                 },
 
                 // Refresh token provider which creates and receives referesh token
@@ -71,13 +71,18 @@ namespace OAuthWS
                 {
                     OnCreate = CreateRefreshToken,
                     OnReceive = ReceiveRefreshToken,
+                },
+                AccessTokenProvider=new AuthenticationTokenProvider
+                {
+                    OnCreate=CreateAccessToken,
+                    
                 }
             });
         }
 
-        private Task ValidateTokenRequest(OAuthValidateTokenRequestContext arg)
+        private void CreateAccessToken(AuthenticationTokenCreateContext context)
         {
-            throw new NotImplementedException();
+            context.SetToken(Guid.NewGuid().ToString("n") + Guid.NewGuid().ToString("n"));
         }
 
         private Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)

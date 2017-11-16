@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(OAuthWS.Startup))]
+[assembly: OwinStartup("OAuthServer",typeof(OAuthWS.Startup))]
 
 namespace OAuthWS
 {

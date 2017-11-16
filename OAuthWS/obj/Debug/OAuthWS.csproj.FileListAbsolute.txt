@@ -75,3 +75,5 @@ c:\users\comp\documents\visual studio 2015\Projects\OAuthWS\OAuthWS\bin\System.W
 c:\users\comp\documents\visual studio 2015\Projects\OAuthWS\OAuthWS\obj\Debug\OAuthWS.csprojResolveAssemblyReference.cache
 c:\users\comp\documents\visual studio 2015\Projects\OAuthWS\OAuthWS\obj\Debug\OAuthWS.dll
 c:\users\comp\documents\visual studio 2015\Projects\OAuthWS\OAuthWS\obj\Debug\OAuthWS.pdb
+C:\Users\COMP\Documents\Visual Studio 2015\Projects\OAuthWS\OAuthWS\bin\WebClient.dll
+C:\Users\COMP\Documents\Visual Studio 2015\Projects\OAuthWS\OAuthWS\bin\WebClient.pdb

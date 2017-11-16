@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(WebClient.Startup))]
+[assembly: OwinStartup("OAuthClient",typeof(WebClient.Startup))]
 
 namespace WebClient
 {
